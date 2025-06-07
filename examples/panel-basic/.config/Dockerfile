@@ -4,7 +4,7 @@ ARG grafana_image=grafana-enterprise
 FROM grafana/${grafana_image}:${grafana_version}
 
 ARG anonymous_auth_enabled=true
-ARG development=false
+ARG development=true
 ARG TARGETARCH
 
 
@@ -51,4 +51,4 @@ RUN sed -i 's|</body>|<script src="http://localhost:35729/livereload.js"></scrip
 
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+CMD ["/entrypoint.sh"]
